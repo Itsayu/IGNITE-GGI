@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue-950: #082a59;
+  --blue-900: #0a3c7e;
+  --blue-800: #075eab;
+  --blue-700: #0876c9;
+  --blue-100: #e8f4ff;
+  --gold-500: #f4c429;
+  --gold-400: #ffd95b;
+  --ink: #102337;
+  --muted: #5c6c7e;
+  --paper: #fbfcfe;
+  --line: #dbe6f1;
+  --background: 210 50% 99%;
+  --foreground: 211 47% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 211 47% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 211 47% 15%;
+  --primary: 211 86% 29%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 75% 95%;
+  --secondary-foreground: 211 86% 29%;
+  --muted: 210 27% 94%;
+  --muted-foreground: 210 16% 42%;
+  --accent: 46 90% 55%;
+  --accent-foreground: 211 47% 15%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 38% 88%;
+  --input: 210 38% 88%;
+  --ring: 211 86% 29%;
+  --radius: 0.8rem;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; font-family: Arial, Helvetica, sans-serif; }
+}
+
+@layer components {
+  .page-wrap { @apply mx-auto w-full max-w-[1180px] px-5 md:px-8; }
+  .eyebrow { @apply mb-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--blue-700)]; }
+  .eyebrow::before { content: ''; @apply h-2 w-2 rounded-full bg-[var(--gold-500)]; }
+  .display { @apply text-4xl font-black leading-[0.98] tracking-[-0.055em] text-[var(--blue-950)] md:text-6xl lg:text-[76px]; }
+  .section-title { @apply text-3xl font-black leading-tight tracking-[-0.04em] text-[var(--blue-950)] md:text-5xl; }
+  .body-copy { @apply text-base leading-7 text-[var(--muted)]; }
+}
+
+.grid-paper {
+  background-image: linear-gradient(rgba(8, 94, 171, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(8, 94, 171, .06) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.hero-orbit { box-shadow: 0 0 0 1px rgba(244,196,41,.25), 0 0 0 28px rgba(244,196,41,.06), 0 0 0 58px rgba(244,196,41,.04); }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.float-slow { animation: float 5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float-slow { animation: none; }
+}
